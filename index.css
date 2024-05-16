@@ -2,24 +2,28 @@
     overflow: hidden;
 }
 
+
+
 .CardContainer {
-    overflow: hidden;
+    overflow: visible;
     width: 100vw;
     height: 100vh;
-    
 }
 
 .CallingCard {
+    background-image: url("Assets/CallingCardBG.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 0;
 
-    /*Dimensions*/
-    width: 40vw;
-    height: 45vh;
-    
+    width: 550px;
+    height: 320px;
 
+    
+   
     /*Misc*/
-    border: 1px solid rgb(0, 0, 0);
-    overflow: hidden;
+    
     
     display: flex;
     align-items: center;
@@ -34,38 +38,58 @@
     animation-fill-mode: forwards;
 }
 
+
 .Logo {
     overflow: visible;
     position: absolute;
-    top: 5vh;
+    top: 35px;
 
+    
+    width: 250px;
+    height: 150px;
 
-    width: 50%;
-    height: 50%;
-
-    max-width: 19vw;
 }
+
+.Logo:hover {
+    animation-name: beat;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
 
 .dagger {
     
     position: absolute;
-    top: -30vh;
-    right: -20vh;
+    
+    overflow: visible;
+    width: 480px;
+    height: 480px;
 
-    width: 30vh;
-    height: 30vh;
 
+    pointer-events: none;
     
 
     /*Animation Effects*/
-    animation-name: daggerThrow;
-    animation-duration: .11s;
-    animation-delay: 2.2s;
+    animation-name: daggerThrowRight;
+    animation-duration: 2.41s;
     animation-timing-function: linear;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
 
+@media (max-width: 750px) {
+    .dagger {
+        animation-name: daggerThrowTop;
+    }
+}
+
+@media (max-width: 500px) {
+    .CallingCard, .dagger {
+        transform: scale(.4);
+    }
+}
 
 
 @keyframes spinTheCard {
@@ -80,44 +104,67 @@
     }
 }
 
-@keyframes daggerThrow {
+@keyframes daggerThrowRight {
     0% {
-        transform: translate(0, 0) skew(0,0);
+        transform: translate(280%, -250%);
     }
 
     85% {
-        transform: translate(-280%, 150%) skew(5deg);
+        transform: translate(280%, -250%);
     }
 
-    88.5% {
-        transform: translate(-280%, 150%) skew(2.5deg);
+    88% {
+        transform: translate(40%, -15%) rotate(-.8deg);
     }
 
-    90% {
-        transform: translate(-280%, 150%) skew(0deg);
-    }
-    92.5% {
-        transform: translate(-280%, 150%) skew(-2.5deg);
+    93% {
+        transform: translate(40%, -15%) rotate(.8deg);
     }
 
     95% {
-        transform: translate(-280%, 150%) skew(-5deg);
+        transform: translate(40%, -15%) rotate(-.8deg);
     }
-
-    98.5% {
-        transform: translate(-280%, 150%) skew(-2.5deg);
+    98% {
+        transform: translate(40%, -15%) rotate(.8deg);
     }
 
     100% {
-        transform: translate(-280%, 150%) skew(0,0);
+        transform: translate(40%, -15%) rotate(-.8deg);
     }
 }
 
-@keyframes pulse {
-    from {
-        transform: ;
+@keyframes daggerThrowTop {
+    0% {
+        transform: translate(280%, -250%);
     }
-    to {
 
+    85% {
+        transform: translate(280%, -250%);
+    }
+
+    88% {
+        transform: translate(0%, -30%) rotate(-.8deg);
+    }
+
+    93% {
+        transform: translate(0%, -30%) rotate(.8deg);
+    }
+
+    95% {
+        transform: translate(0%, -30%) rotate(-.8deg);
+    }
+    98% {
+        transform: translate(0%, -30%) rotate(.8deg);
+    }
+
+    100% {
+        transform: translate(0%, -30%) rotate(-.8deg);
     }
 }
+
+
+@keyframes beat {
+    0%, 50%, 100% { transform: scale(1, 1) ; }
+    30%, 80% { transform: scale(0.95, 0.95) ; }
+  }
+

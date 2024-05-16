@@ -5,8 +5,10 @@
 
 body {
     background-image: url(Assets/Persona5BG.jpg);
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;
-    background-position: fixed;
+    background-position: center;
+    
 }
+
 
